@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, send_file
-from .utils import process_attendance
+from utils import process_attendance
 import pandas as pd
 from io import BytesIO
 
