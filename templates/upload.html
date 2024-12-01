@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="file"], input[type="number"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Attendance File</h1>
+
+    <div class="container">
+        <form action="/process" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Select Attendance File (Excel):</label>
+                <input type="file" id="file" name="file" accept=".xlsx" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="total_holidays">Other Holidays (Festivals, etc.):</label>
+                <input type="number" id="total_holidays" name="total_holidays" placeholder="Enter other holidays" required>
+            </div>
+
+            <div class="form-group">
+                <label for="total_saturdays">Total 2nd & 4th Saturdays:</label>
+                <input type="number" id="total_saturdays" name="total_saturdays" placeholder="Enter 2nd & 4th Saturdays" required>
+            </div>
+
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
